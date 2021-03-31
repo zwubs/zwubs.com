@@ -1,0 +1,113 @@
+#about {
+
+	position: relative;
+
+	width: 100vw;
+	height: 100vh;
+
+	color: #1D1D1D;
+
+	background-color: #FFF;
+
+}
+
+#about>.header {
+
+	font-family: FuturaMD;
+	font-size: 5vw;
+	text-align: center;
+
+	padding: 5vh 0vh;
+
+}
+
+#about .content {
+
+	display: flex;
+	flex-direction: row;
+
+	width: 100%;
+
+	font-family: FuturaBK;
+	font-size: 16px;
+
+}
+
+#about .content .column>* { padding: 2vh 0vh; }
+
+#about .content .column { flex: 1; }
+
+#about .content .column .header {
+
+	width: 100%;
+
+	font-size: 4vh;
+	text-align: center;
+
+}
+
+
+#about .content .column div { width: 100%; text-align: center; }
+
+#about .content .hours .message { width: 75%; text-align: justify; margin: 0 12.5%; }
+
+#about .content .location span { display: block; }
+
+#about .content .location img { width: 100%; }
+
+#about .content .contact form {
+
+	width: 75%;
+
+	margin: 0 12.5%;
+
+	line-height: 5vh;
+
+}
+
+#about .content .contact form input[type=text], #contact-msg {
+
+	width: calc( 100% - 20px );
+
+	border: 1px solid #1D1D1D;
+	border-radius: 10px;
+
+	padding: 10px;
+
+	resize: none;
+
+}
+
+#about .content .contact form button {
+
+	display:block;
+
+	padding: 10px 20px;
+	margin:0 auto;
+	margin-top: 10px;
+
+	border: 1px solid #1D1D1D;
+	border-radius: 10px;
+
+	background-color: #FFF;
+
+	color: #1D1D1D;
+	text-align: center;
+	text-decoration: none;
+
+	cursor: pointer;
+
+	transition: all .25s ease-in-out;
+
+}
+
+#about .content .contact form button:hover {
+
+	color: #FFF;
+	background-color: #1D1D1D;
+
+}
+
+#about .content .contact form span.error { color: #F44; font-size: 12px; line-height: 16px; }
+#about .content .contact form span.error::before { content: '('; }
+#about .content .contact form span.error::after { content: ')'; }

@@ -1,1 +1,511 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 
+	<!--
+
+	Ideas
+
+	https://twochimpscoffee.com/
+
+	-->
+
+	<head>
+
+		<meta charset="utf-8">
+
+		<title>The Caffeinery</title>
+
+		<link rel="stylesheet" href="./css/flickity.css">
+
+		<style>
+
+			body {
+
+				margin: 0;
+
+				width: 100vw;
+				height: 100vh;
+
+				overflow-x: hidden;
+
+			}
+
+			html::-webkit-scrollbar {
+				display: none;
+			}
+
+			/* Hide scrollbar for IE, Edge and Firefox */
+			html {
+				-ms-overflow-style: none;  /* IE and Edge */
+				scrollbar-width: none;  /* Firefox */
+			}
+
+			/*
+				HEADER
+			*/
+			@font-face {
+				font-family: FuturaMD;
+				src: url("./fonts/Futura Md BT Bold.ttf");
+			}
+
+			@font-face {
+				font-family: FuturaBK;
+				src: url("./fonts/Futura Bk BT Book.ttf");
+			}
+
+			input::-webkit-outer-spin-button,
+			input::-webkit-inner-spin-button {
+				-webkit-appearance: none;
+				margin: 0;
+			}
+
+			/* Firefox */
+			input[type=number] {
+				-moz-appearance: textfield;
+			}
+
+		</style>
+
+		<link rel="stylesheet" href="./css/header.css">
+		<link rel="stylesheet" href="./css/intro.css">
+		<link rel="stylesheet" href="./css/description.css">
+		<link rel="stylesheet" href="./css/about.css">
+		<link rel="stylesheet" href="./css/footer.css">
+
+	</head>
+	<body>
+
+		<div id="intro" class="standard">
+
+			<header>
+
+				<svg id="logo" width="100px" height="100px" viewBox="0 0 42 42" style="fill:none;stroke-width:1.67px;fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+					<path d="M19.155,11.061c0,0 0,-2.628 2.026,-2.628c2.025,0 2.025,2.628 2.025,2.628"/>
+					<path d="M13.079,15.509c-0,0 -0,-4.555 8.102,-4.555c8.101,0 8.101,4.555 8.101,4.555" />
+					<path d="M27.284,27.184c1.193,-2.803 0.581,-6.853 3.483,-9.376c4.793,-4.166 -23.966,-4.166 -19.173,0c2.929,2.546 1.885,6.647 3.057,9.453" />
+					<path d="M21.272,26.142l-12.244,2.083l-0,4.769l12.244,1.481l-0,-8.333Z" />
+					<path d="M21.272,34.475l12.061,-1.481l0,-4.769l-12.061,-2.083l-0,8.333Z" />
+					<path d="M21.181,8.433l-8.102,0l-0,-3.125" />
+					<circle cx="21" cy="21" r="20"/>
+				</svg>
+
+				<a href="#" class="title">THE CAFFIENERY</a>
+
+			</header>
+
+
+			<div class="carousel">
+
+				<div id="nite-life-slide" class="cell coffee-slide">
+					<div class="box information">
+						<div class="section description">
+							<h1>Why This Coffee?</h1>
+							<div>
+								Our Nite Life roast was created for those burning the midnight oils and having fun.
+								For those late night outtings or rebounds at dawn.
+								Nite Life has the right caffiene levels to energized you and get you ready to go.
+							</div>
+							<div class="footer">
+								<div class="price">$7.25</div>
+								<div class="order-button">Order Now</div>
+							</div>
+						</div>
+						<div class="section break"></div>
+						<div class="section facts">
+							<h1>The Facts.</h1>
+							<div class="row">
+								<img title="Origin" width="25px" height="25px" src="./img/icons/map-marker.svg"/>
+								<span>San Jose Poaquil<br>Guatemala</span>
+							</div>
+							<div class="row">
+								<img title="Flavor Notes" width="25px" height="25px" src="./img/icons/music-note.svg"/>
+								<span>Dark Chocolate<br>Creamy Nougat</span>
+							</div>
+							<div class="row">
+								<img title="Roast" width="25px" height="25px" src="./img/icons/fire.svg"/>
+								<span>Medium Roast</span>
+							</div>
+							<div class="row">
+								<img title="Weight" width="25px" height="25px" src="./img/icons/weight.svg"/>
+								<span>250g</span>
+							</div>
+						</div>
+						<img src="./img/icons/close.svg" class="close close-focus" />
+					</div>
+					<img class="coffee-bag" src="./img/coffee-bags/nite-life.png" />
+				</div>
+				<div id="sun-set-slide" class="cell coffee-slide">
+					<div class="box information">
+						<div class="section description">
+							<h1>Why This Coffee?</h1>
+							<div>
+								Our Sun Set roast mixes everything we love about a morning cup of coffee, in to a perfect evening experience.
+								From its smell to its taste, everthing about this roast is here to capture the beauty of a sun set.
+								So feel inspired and grab yourself a bag today.
+							</div>
+							<div class="footer">
+								<div class="price">$7.25</div>
+								<div class="order-button">Order Now</div>
+							</div>
+						</div>
+						<div class="section break"></div>
+						<div class="section facts">
+							<h1>The Facts.</h1>
+							<div class="row">
+								<img title="Origin" width="25px" height="25px" src="./img/icons/map-marker.svg"/>
+								<span>San Carlos Dos Florida<br>El Salvador</span>
+							</div>
+							<div class="row">
+								<img title="Flavor Notes" width="25px" height="25px" src="./img/icons/music-note.svg"/>
+								<span>Almond Chocolate<br>Cherry Acidity</span>
+							</div>
+							<div class="row">
+								<img title="Roast" width="25px" height="25px" src="./img/icons/fire.svg"/>
+								<span>Dark Roast</span>
+							</div>
+							<div class="row">
+								<img title="Weight" width="25px" height="25px" src="./img/icons/weight.svg"/>
+								<span>250g</span>
+							</div>
+						</div>
+						<img src="./img/icons/close.svg" class="close close-focus" />
+					</div>
+					<img class="coffee-bag" src="./img/coffee-bags/sun-set.png" />
+				</div>
+				<div id="even-tide-slide" class="cell coffee-slide">
+					<div class="box information">
+						<div class="section description">
+							<h1>Why This Coffee?</h1>
+							<div>
+								Our Even Tide roast creates a soft space for a relaxing cup of coffee.
+								Being our lightest roast you can expect an full and flavorful experience.
+								Even Tide has been a fan favorite for 3 years running! So pick up a bag today.
+							</div>
+							<div class="footer">
+								<div class="price">$7.25</div>
+								<div class="order-button">Order Now</div>
+							</div>
+						</div>
+						<div class="section break"></div>
+						<div class="section facts">
+							<h1>The Facts.</h1>
+							<div class="row">
+								<img title="Origin" width="25px" height="25px" src="./img/icons/map-marker.svg"/>
+								<span>La Quina<br>Peru</span>
+							</div>
+							<div class="row">
+								<img title="Flavor Notes" width="25px" height="25px" src="./img/icons/music-note.svg"/>
+								<span>Grape Acidity<br>Sweet Vanilla</span>
+							</div>
+							<div class="row">
+								<img title="Roast" width="25px" height="25px" src="./img/icons/fire.svg"/>
+								<span>Light Roast</span>
+							</div>
+							<div class="row">
+								<img title="Weight" width="25px" height="25px" src="./img/icons/weight.svg"/>
+								<span>250g</span>
+							</div>
+						</div>
+						<img src="./img/icons/close.svg" class="close close-focus" />
+					</div>
+					<img class="coffee-bag" src="./img/coffee-bags/even-tide.png" />
+				</div>
+
+			</div>
+
+
+			<div id="order" class="box">
+
+				<form id="order-form" name="order">
+
+					<input type="text" id="order-first" placeholder="First Name" name="first-name">
+					<input type="text" id="order-last" placeholder="Last Name" name="last-name">
+
+					<input type="text" id="order-address" placeholder="Address" name="address">
+					<input type="text" id="order-city" placeholder="City" name="city">
+					<input type="text" id="order-country" placeholder="Country" name="country">
+					<input type="text" id="order-state" placeholder="state" name="state">
+					<input type="text" id="order-zipcode" placeholder="zipcode" name="zipcode">
+					<input type="text" id="order-phone" placeholder="phone" name="phone">
+
+					<button type="submit" id="order-submit">Payment</button>
+
+				</form>
+
+				<div id="order-information">
+
+					<div id="order-coffee">NITE<br>LIFE</div>
+
+					<input type="number" value="1">
+
+				</div>
+
+				<img src="./img/icons/close.svg" class="close close-order" />
+
+			</div>
+
+		</div>
+
+		<div id="description">
+
+			<div class="content">
+
+				<div class="title">
+					<h1>Exceptional</h1>
+					<h1>Coffee</h1>
+					<h1>No Bullsh<span style="vertical-align:-1vw;">*</span>t</h1>
+				</div>
+
+				<div class="text">
+						It’s short and to the point, but it also encompasses every aspect of what we do daily.  Exceptional things don't have to be complicated. We take great pride in sourcing, roasting, and preparing coffee. There are no secret formulas or hidden recipes...  It's just hard work and attention to detail.
+					<br><br>You can rest easy knowing that our coffees are roasted to order in small batches with artistic precision.
+					Whether you're looking for a solid accompaniment to your digital news feed, or something exotic and adventurous, we've got you covered.
+				</div>
+
+			</div>
+
+			<div id="video">
+
+				<video controls disablePictureInPicture controlsList="nodownload">
+					<source src="./img/videos/about.mp4" type="video/mp4">
+				</video>
+
+			</div>
+
+			<div class="background">
+
+				<div class="images">
+
+					<img src="./img/coffee-grinder.png" />
+					<img src="./img/coffee-grinder.png" />
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div id="about">
+
+			<div class="header">About Us</div>
+
+			<div class="content">
+
+				<div class="column hours">
+
+					<div class="header">Shop Hours</div>
+ 					<div>The coffee shop is temporarily closed.</div>
+
+					<div class="message">For the time being, we are going to focus all of our efforts on the roastery and we are so excited about it. It's been such a great joy for us to bring delicious coffee to your doorstep every week and we would like to continue doing so.</div>
+
+				</div>
+				<div class="column location">
+
+					<div class="header">Location</div>
+
+					<div class="address">
+						<span>The Caffeinery</span>
+						<span>401 S. Walnut Street</span>
+						<span>Muncie, Indiana 47305</span>
+					</div>
+
+					<img src="./img/map.png" />
+				</div>
+				<div class="column contact">
+
+					<div class="header">Contact</div>
+
+					<form id="contact-form" name="contact">
+
+						<label for="name">Name</label>
+						<input type="text" id="contact-name" name="name">
+
+						<label for="phone">Phone Number</label>
+						<input type="text" id="contact-phone" name="phone">
+
+						<label for="email">Email*</label>
+						<input type="text" id="contact-email" name="email">
+
+						<label for="msg">Message</label>
+						<textarea id="contact-msg" name="msg" rows="4"></textarea>
+
+						<button type="submit">Send</button>
+
+					</form>
+
+				</div>
+
+			</div>
+
+			<footer>
+
+				<div id="social-media">
+					<a class="icon" href="https://facebook.com/thecaffeinery">
+						<img width="25px" height="25px" src="./img/icons/facebook.svg" />
+					</a>
+					<a class="icon" href="http://instagram.com/thecaffeinery">
+						<img width="25px" height="25px" src="./img/icons/instagram.svg" />
+					</a>
+					<a class="icon" href="https://twitter.com/thecaffeinery">
+						<img width="25px" height="25px" src="./img/icons/twitter.svg" />
+					</a>
+				</div>
+
+				<div id="copyright">© 2021, The Caffeinery™</div>
+
+			</footer>
+
+		</div>
+
+		<!-- JQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+		<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+
+		<!-- Flickity -->
+		<script src="./js/flickity.pkgd.js"></script>
+
+		<script>
+
+			Flickity.createMethods.push('_createPrevNextCells');
+
+			Flickity.prototype._createPrevNextCells = function() {
+				this.on( 'select', this.setPrevNextCells );
+			};
+
+			function mod(n, m) {
+			  return ((n % m) + m) % m;
+			}
+
+			Flickity.prototype.setPrevNextCells = function() {
+				// remove classes
+				changeSlideClasses( this.previousSlide, 'remove', 'is-previous' );
+				changeSlideClasses( this.nextSlide, 'remove', 'is-next' );
+				// set slides
+				this.previousSlide = this.slides[ mod( this.selectedIndex - 1, this.slides.length ) ];
+				this.nextSlide = this.slides[ mod( this.selectedIndex + 1, this.slides.length ) ];
+				// add classes
+				changeSlideClasses( this.previousSlide, 'add', 'is-previous' );
+				changeSlideClasses( this.nextSlide, 'add', 'is-next' );
+			};
+
+			function changeSlideClasses( slide, method, className ) {
+				if ( !slide ) {
+					return;
+				}
+				slide.getCellElements().forEach( function( cellElem ) {
+					cellElem.classList[ method ]( className );
+				});
+			}
+
+		</script>
+
+		<script>
+
+		$(document).ready(function () {
+            $("#contact-phone").inputmask({"mask": "(999) 999-9999"});
+			$("#contact-email").inputmask('Regex', { regex: "[a-zA-Z0-9._%-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,4}" });
+
+			$("form[name='contact']").validate({
+				errorElement: "span",
+				rules: {
+
+					email: {
+						required: true,
+
+						email: true
+					},
+					phone: {
+						minlength: 14,
+						maxlength: 14
+					}
+				},
+
+				messages: {
+					password: {
+						minlength: "Your password must be 10 characters long"
+					},
+					email: "Please enter a valid email address"
+				},
+
+				submitHandler: function(form) {
+					form.submit();
+				},
+
+				errorPlacement: function(error, element) {
+					if (element.attr("name") == "email") {
+						error.insertBefore("#contact-email");
+					} else {
+						error.insertAfter(element);
+					}
+				}
+
+
+			});
+
+		});
+
+		var $carousel = $('.carousel').flickity({
+			// options
+			cellAlign: 'center',
+			contain: true,
+			wrapAround: true,
+			prevNextButtons: false,
+		});
+
+		var flkty = $carousel.data('flickity');
+
+		$('body').on('click', '.standard .is-next .coffee-bag', function() {
+			$carousel.flickity( 'next' )
+		});
+
+		$('body').on('click', '.standard .is-previous .coffee-bag', function() {
+			$carousel.flickity( 'previous' )
+		});
+
+		$('body').on('click', '.standard .is-selected .coffee-bag', function() {
+
+			$('#intro').removeClass('standard');
+			$('#intro').addClass('focused');
+			$('html, body').animate({
+                scrollTop: $("body").offset().top
+            }, 500, 'swing');
+			$('body').css("overflow", "hidden");
+
+			flkty.options.draggable = !flkty.options.draggable;
+			flkty.updateDraggable();
+
+		});
+
+		$('body').on('click', '.close-focus', function() {
+
+			$('#intro').removeClass('focused');
+			$('#intro').addClass('standard');
+			$('body').css("overflow", "visible");
+
+			flkty.options.draggable = !flkty.options.draggable;
+			flkty.updateDraggable();
+
+		});
+
+		$('body').on('click', '.order-button', function() {
+
+			$('#intro').removeClass('focused');
+			$('#intro').addClass('ordering');
+
+		});
+
+		$('body').on('click', '.close-order', function() {
+
+			$('#intro').removeClass('ordering');
+			$('#intro').addClass('focused');
+
+		});
+
+
+		</script>
+
+	</body>
+</html>

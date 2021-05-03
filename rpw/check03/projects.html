@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+	<head>
+
+		<meta charset="utf-8">
+
+		<title>ZWubs | Projects</title>
+
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+
+		<style>
+
+			:root {
+				--html-background: linear-gradient( to right, red, purple );
+				--css-background: linear-gradient( to right, red, purple );
+				--js-background: #F0DB4F;
+				--webgl-background: linear-gradient( to right, red, purple );
+				--threejs-background: linear-gradient( to right, red, purple );
+
+				--js-color: #111;
+			}
+
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			@font-face {
+				font-family: FuturaMD;
+				src: url("./fonts/Futura Md BT Bold.ttf");
+			}
+
+			body {
+
+				width: 100vw;
+				height: 100vh;
+
+				margin: 0;
+
+				overflow: hidden;
+
+				background-color: #111;
+
+			}
+
+			#projects {
+
+				position: absolute;
+
+				top: 0;
+
+				width: 100vw;
+				height: 100vh;
+
+			}
+
+			.project {
+
+				position: relative;
+
+				width: 100vw;
+				height: 75vh;
+
+				margin: 12.5vh 0vh;
+
+				background-color: #1D1D1D;
+
+			}
+
+			.project .content {
+
+				position: relative;
+
+				width: 50%;
+				height: calc( 100% - 8vh );
+
+				padding-left: 4vw;
+				padding-top: 4vh;
+				margin-bottom: 4vh;
+
+			}
+
+			.project .content .title {
+
+				padding-bottom: 4vh;
+
+				line-height: 100%;
+
+				font-family: FuturaMD;
+				font-size: 5vw;
+				text-decoration: none;
+				text-align: left;
+				color: #FFF;
+				letter-spacing: 3px;
+
+				white-space: nowrap;
+
+				text-shadow:
+					0 1px 0 #929292,
+					0 2px 0 #8a8a8a,
+					0 3px 0 #838383,
+					0 4px 0 #7c7c7c,
+					0 5px 0 #747474,
+					0 6px 0 #6d6d6d,
+					0 9px 9px rgba( 23, 23, 23, 0.3 );
+
+			}
+
+			.project .content .description {
+
+				font-family: Roboto;
+
+				font-size: 2.5vh;
+				font-weight: 400;
+				text-decoration: none;
+				text-align: left;
+				line-height: 1.5;
+				color: #FFF;
+
+				padding-bottom: 4vh;
+
+			}
+
+			.project .content .buttons {
+
+				position: absolute;
+
+				bottom: 0;
+
+			}
+
+			.project .content .buttons .button {
+
+				width: 10vw;
+				height: 5vh;
+
+				margin-right: 1vw;
+
+				display: inline-block;
+
+				border: 0.25vh solid #FFF;
+				border-radius: 5vh;
+
+				color: #FFF;
+				font-family: FuturaMD;
+				font-size: 2.5vh;
+				text-align: center;
+				line-height: 5vh;
+				letter-spacing: 3px;
+
+				cursor: pointer;
+
+				background-color: transparent;
+
+				transition: background-color 0.25s ease-in, border-color 0.25s linear;
+
+			}
+
+			.project .content .buttons .button:hover { background-color: var(--color); border-color: transparent; }
+
+			.project .content .identifiers {
+
+				width: 100%;
+
+			}
+
+			.project .content .identifiers span {
+
+				font-family: Roboto;
+
+				padding: 5px 10px;
+
+				margin-right: 0.5vw;
+
+				border: 1px solid #FFF;
+				border-radius: 5px;
+
+				opacity: 0.5;
+
+			}
+
+			.project .content .identifiers [data-reference]:hover { opacity: 1.0; cursor: pointer; border-color: transparent; }
+
+			.project .content .identifiers [data-reference="html"]:hover { color: #FD5151; border-color: #FD5151; }
+			.project .content .identifiers [data-reference="css"]:hover { color: #039BE5; border-color: #039BE5; }
+			.project .content .identifiers [data-reference="js"]:hover { color: var(--js-color); background: var(--js-background); }
+			.project .content .identifiers [data-reference="webgl"]:hover { color: #961A1F; border-color: #961A1F; }
+			.project .content .identifiers [data-reference="threejs"]:hover { color: #FD5151; border-color: #FD5151; }
+
+			[data-reference] { color: #FFF; }
+			[data-reference="html"]::before { content:"HTML"; }
+			[data-reference="css"]::before { content:"CSS"; }
+			[data-reference="js"]::before { content:"Javscript"; }
+			[data-reference="webgl"]::before { content:"WebGL"; }
+			[data-reference="threejs"]::before { content:"ThreeJS"; }
+
+			.renders {
+
+				width: 50%;
+				height: 100%;
+
+				position: absolute;
+
+				top: 0;
+				right: 0;
+
+				overflow: hidden;
+
+			}
+
+			@keyframes moveInAnimation {
+				0% {
+					padding-left: 100%;
+				}
+				100% {
+					padding-left: 0%;
+				}
+			}
+
+			.renders .layer {
+
+				position: absolute;
+
+				height: 90%;
+
+				left: 10%;
+
+				/* Animation Variable */
+				padding-left: 100%;
+
+				transform: translate( 0%, 0% );
+
+				transition: transform 2s ease-out 0s;
+
+				animation: moveInAnimation ease-out 2s;
+				animation-fill-mode: forwards;
+
+			}
+
+			.layer-1 { z-index: 3; }
+			.layer-2 { z-index: 2; }
+			.layer-3 { z-index: 1; }
+
+			.project.active .layer-1 { animation-delay: 0.0s; }
+			.project.active .layer-2 { animation-delay: 0.25s; }
+			.project.active .layer-3 { animation-delay: 0.5s; }
+
+			.project-shift {
+
+				position: absolute;
+
+				width: 100%;
+				height: calc( 25vh / 2 );
+
+			}
+
+			.project-shift:hover {
+
+				background-color: rgba( 255, 255, 255, 0.1 );
+
+			}
+
+			#project-shift-up { top: 0; }
+			#project-shift-down { bottom: 0; }
+
+			.arrow {
+
+				position: absolute;
+
+				left: 50%;
+				top: 50%;
+
+				width: 5vh;
+				height: 5vh;
+
+				filter: invert(100%)
+
+			}
+
+			#project-shift-up .arrow { transform: translate( -50%, -50% ) rotate(0deg); }
+			#project-shift-down .arrow { transform: translate( -50%, -50% ) rotate(180deg); }
+
+		</style>
+
+
+	</head>
+
+	<body>
+
+		<div id="projects">
+
+			<div id="project-shift-up" class="project-shift">
+
+				<div class="arrow" style="content: url(./icons/angle-up.svg);"></div>
+
+			</div>
+
+			<div id="project-shift-down" class="project-shift">
+
+				<div class="arrow" style="content: url(./icons/angle-up.svg);"></div>
+
+			</div>
+
+			<div class="project active">
+
+				<div class="content">
+
+					<div class="title">PANIC</div>
+					<div class="description">
+						PANIC is a game I've been in the process of creating throughout the past 4 years.
+						PANIC acted as my first foray in to the world of WebGL through the ThreeJS framework.
+						This game ended up being the spark for my interest in the world of 3D graphics, branching out in to raytracing and even some game engines.
+						If you'd like to try a demo from a few years ago, it's not up to date, but still pretty fun!
+						As well you can check out my work on the current iteration, the "PANIC Engine" a game engine for creating voxel-based WebGL games!
+					</div>
+					<div class="buttons">
+						<div style="--color: #FD5151;" class="button">DEMO</div>
+						<div style="--color: #45CEED;" class="button">BLOG</div>
+					</div>
+					<div class="identifiers">
+						<span data-reference="js"></span>
+						<span data-reference="threejs"></span>
+						<span data-reference="webgl"></span>
+					</div>
+
+				</div>
+
+				<div class="renders parallax">
+
+					<img class="layer layer-1" style="left:10%;top:0%" data-parallax="-0.025" src="./renders/panic/layer-1.png" />
+					<img class="layer layer-2" style="left:15%;top:1%" data-parallax="0.05" src="./renders/panic/layer-2.png" />
+					<img class="layer layer-3" style="left:15%;top:2%" data-parallax="0.1" src="./renders/panic/layer-3.png" />
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<!-- Javascript -->
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+		<script>
+
+			$(document).ready(function() {
+
+				// Setup Parallax
+				$('.parallax').mousemove( function(event) {
+
+			       	let width = event.originalEvent.layerX/event.currentTarget.clientWidth - 0.5;
+					let height = event.originalEvent.layerY/event.currentTarget.clientHeight - 0.5;
+
+					$(event.currentTarget).children(".layer").each(function ( index, element ) {
+						let dampening = $(element).data("parallax");
+						let x = ( width * -dampening ) * 100;
+						let y = ( height * -dampening ) * 100;
+						$(element).css("transform", `translate( ${x}%, ${y}% )`);
+					});
+
+			    });
+
+			});
+
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,15 @@
+{
+	
+	"title": "Javascript",
+
+	"lvl": 75,
+
+	"color": "#000000",
+	"gradient-start": "#000000",
+	"gradient-end": "#000000",
+
+	"icon": "./js.svg",
+
+	"description": ""
+
+}

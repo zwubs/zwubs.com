@@ -9,6 +9,18 @@
 
 		<title>ZWubs | Projects</title>
 
+		<link rel="manifest" href="/manifest.json">
+		<meta name="theme-color" content="white"/>
+
+		<link rel="icon" href="icons/favicon.png" type="image/png" />
+		<link rel="apple-touch-icon" href="icons/favicon-256.png">
+		<meta name="theme-color" content="white"/>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-title" content="ZWubs">
+		<meta name="msapplication-TileImage" content="icons/favicon.png">
+		<meta name="msapplication-TileColor" content="#FFFFFF">
+
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
 
@@ -39,6 +51,8 @@
 				width: 100vw;
 				height: 100vh;
 
+				min-height: -moz-available, -webkit-fill-available;
+
 				margin: 0;
 
 				overflow: hidden;
@@ -53,8 +67,8 @@
 
 				top: 0;
 
-				width: 100vw;
-				height: 100vh;
+				width: 100%;
+				height: 100%;
 
 				overflow: hidden;
 
@@ -69,7 +83,7 @@
 				left: 0; top: 0;
 
 				width: 100vw;
-				height: 75vh;
+				height: 75%;
 
 				margin: 12.5vh 0vh;
 
@@ -328,7 +342,7 @@
 				position: absolute;
 
 				width: 100%;
-				height: calc( 25vh / 2 );
+				height: calc( 25% / 2 );
 
 				z-index: 5;
 
@@ -604,6 +618,14 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 		<script>
+
+			window.onload = () => {
+				'use strict';
+
+				if ('serviceWorker' in navigator) {
+					navigator.serviceWorker.register('./service-worker.js');
+				}
+			}
 
 			$(document).ready(function() {
 

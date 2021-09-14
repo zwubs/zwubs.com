@@ -1,0 +1,52 @@
+<html>
+
+	<head>
+
+		<title>Web Animation | Animated Logo</title>
+
+		<style>
+
+			html, body {
+
+				margin: 0;
+
+				overflow: hidden;
+
+			}
+
+			video {
+
+				position: absolute;
+
+				left: 50%;
+				top: 50%;
+
+				width: 100vw;
+				height: auto;
+
+				transform: translate( -50%, -50% );
+
+			}
+
+			@media screen and (max-width: 640px) {
+
+				video {
+
+					height: 100vh;
+					width: auto
+
+				}
+
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<video autoplay muted src="./the-boring-company-flamethrower.mp4"></video>
+
+	</body>
+
+</html>

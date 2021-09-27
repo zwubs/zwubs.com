@@ -23,6 +23,8 @@
 
 				position: absolute;
 
+				user-select:none;
+
 				margin: 0;
 
 				width: 100%;
@@ -264,6 +266,14 @@
 			let center = [ window.innerWidth / 2, window.innerHeight / 2 ];
 
 			distance = Math.abs( Math.sqrt( Math.pow( e.clientX - center[0], 2 ) + Math.pow( e.clientY - center[1], 2 ) ) ) / 360;
+
+		});
+
+		window.addEventListener("touchstart", e => {
+
+			let center = [ window.innerWidth / 2, window.innerHeight / 2 ];
+
+			distance = Math.abs( Math.sqrt( Math.pow( e.touchList.item(0).clientX - center[0], 2 ) + Math.pow( e.touchList.item(0).clientY - center[1], 2 ) ) ) / 360;
 
 		});
 

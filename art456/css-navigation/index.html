@@ -11,6 +11,10 @@
 
 			:root {
 			    --block-scale: 10;
+				--block-position: 0;
+				--block-rotationX: 0;
+				--block-rotationY: 0;
+				--shadow-level: 0;
 			}
 
 			body {
@@ -26,21 +30,22 @@
 
 			}
 
-			.scene {
+			#scene {
 
 				position: absolute;
 
 				left: 50%;
 				top: 50%;
 
-				transform: translate(-50%,-50%);
-
-				border: 1px black solid;
+				transform: translate(-50%,-55%);
 
 				perspective: 100vh;
 
-				padding: calc( var( --block-scale ) * 8px );
+				padding: calc( var(--block-scale) * 16px );
+
 				border-radius: 50%;
+
+				margin: auto;
 
 			}
 
@@ -51,15 +56,7 @@
 
 				transform-style: preserve-3d;
 
-				transform: rotateX(-30deg) rotateY(0deg);
-
-				transition: transform 0.025s linear;
-
-			}
-
-			.scene:hover .cube {
-
-				transition: transform 0.1s linear;
+				transform: rotateX( var(--block-rotation-x) ) rotateY( var(--block-rotation-y) ) translateY( var(--block-position) );
 
 			}
 
@@ -74,44 +71,117 @@
 
 			}
 
-			.cube .face[shading=1] {
-
-				opacity: 0.5;
-
-			}
-
 			.cube .face.ZP { transform: rotateY(90deg) translateZ( calc( var(--block-scale) * 8px ) ); }
 			.cube .face.ZN { transform: rotateY(-90deg) translateZ( calc( var(--block-scale) * 8px ) ); }
-			.cube .face.XP { transform: rotate(0deg) translateZ( calc( var(--block-scale) * 8px ) ); }
+			.cube .face.XP { transform: rotateY(0deg) translateZ( calc( var(--block-scale) * 8px ) ); }
 			.cube .face.XN { transform: rotateY(180deg) translateZ( calc( var(--block-scale) * 8px ) ); }
 			.cube .face.YP { transform: rotateX(90deg) translateZ( calc( var(--block-scale) * 8px ) ); }
 			.cube .face.YN { transform: rotateX(-90deg) translateZ( calc( var(--block-scale) * 8px ) ); }
 
-			.background-1 { background-color: #FFC282; }
-			.background-2 { background-color: #E876C2; }
-			.background-3 { background-color: #8F9EFF; }
-			.background-4 { background-color: #76E8B6; }
-			.background-5 { background-color: #FFFF9B; }
+			#cube .bg1 { background-color: #FFC282; }
+			#cube .bg2 { background-color: #E876C2; }
+			#cube .bg3 { background-color: #8F9EFF; }
+			#cube .bg4 { background-color: #FFFF9B; }
+			#cube .bg5 { background-color: #76E8B6; }
+			#cube .bg6 { background-color: #76E8B6; }
 
-			.background-1:active { opacity: 0; }
+			/*
+				Shadow
+			*/
+			.shadow {
 
-			.face:after {
-				content:'';
-				position:absolute;
-				left:0; top:0;
-				width:100%; height:100%;
-				display:inline-block;
-				background: radial-gradient( rgba(1,1,1,0), rgba(1,1,1,0.1));
+				transform: rotateX(0deg) rotateY(0deg) translateY( calc( 128px - var(--block-position) ) ) scaleY(0.001);
 
 			}
 
-			.face:hover:after {
+			.shadow .face {
 
-				background: radial-gradient( rgba(1,1,1,0.1), rgba(1,1,1,0));
+				background: rgba( 0, 0, 0, 0.1 );
+
+				filter: blur( var( --shadow-level ) );
+
+				opacity: 1.0;
+
+				cursor: initial;
+
+				transition: opacity 0.25s ease-in 0.75s;
 
 			}
 
-			.animated { transform: rotateX(-25deg) rotateY(1deg); }
+			#cube:not(.reset) .shadow .face {
+
+				transition: opacity 0.25s ease-in;
+
+				opacity: 0.0;
+
+			}
+
+			/*
+				Animations
+			*/
+			#cube.side1 { animation: "side1" 1.5s ease-in-out 0s 1 normal forwards; }
+			@keyframes side1 {
+				25% { transform: rotateX( 0 ) rotateY( 270deg ) translateY( 0 ); }
+				50% { transform: rotateX( 0 ) rotateY( 270deg ) translateY( 0 ); }
+				100% { transform: translateZ(80vh) rotateX(0) rotateZ( 180deg ) rotateY( 270deg ) translateY( 0 ); }
+			}
+
+			#cube.side2 { animation: "side2" 1s ease-in-out 0s 1 normal forwards; }
+			@keyframes side2 {
+				50% { transform: rotateX( 0 ) rotateY( 90deg ) translateY( 0 ); }
+				100% { transform: rotateX( 0 ) rotateY( 90deg ) translateY( 0 ) scale3d(5,5,5); }
+			}
+
+			#cube.side3 { animation: "side3" 1.5s ease-in-out 0s 1 normal forwards; }
+			@keyframes side3 {
+				25% { transform: rotateX( 0 ) rotateY( 0 ) translateY( 0 ); }
+				75% { transform: rotateX( 0 ) rotateY( 360deg ) translateY( 0 ) scale3d(3,3,3);  }
+				100% { transform: rotateX( 0 ) rotateY( 360deg ) translateY( 0 ) scale3d(5,5,5);  }
+			}
+
+			#cube.side4 { animation: "side4" 1.5s ease-in-out 0s 1 normal forwards; }
+			@keyframes side4 {
+				50% { transform: rotateX( 0 ) rotateY( 180deg ) translateY( 100vh ); }
+				100% { transform: rotateX( 0 ) rotateY( 180deg ) translateY( 0 ) scale3d(5,5,5); }
+			}
+
+			#cube.side5 { animation: "side5" 1s ease-in-out 0s 1 normal forwards; }
+			@keyframes side5 {
+				50% { transform: rotateX( -45deg ) rotateY( 0 ) translateY( 0 ) scaleY(0.001); }
+				75% { transform: rotateX( -90deg ) rotateY( 0 ) translateY( 0 ) scaleY(0.001); }
+				100% { transform: rotateX( -90deg ) rotateY( 0 ) translateY( 0 ) scale3d(10,0.001,10); }
+			}
+
+			#cube.reset.side1 { animation: "reset1" 1s ease-in-out 0s 1 normal forwards; }
+			@keyframes reset1 {
+				from { transform: translateZ(80vh) rotateX(0) rotateZ( 180deg ) rotateY( 270deg ) translateY( 0 ); }
+				to { transform: rotateX( var(--block-rotation-x) ) rotateY( var(--block-rotation-y) ) translateY( var(--block-position) ); }
+			}
+
+			#cube.reset.side2 { animation: "reset2" 1s ease-in-out 0s 1 normal forwards; }
+			@keyframes reset2 {
+				from { transform: rotateX( 0 ) rotateY( 90deg ) translateY( 0 ) scale3d(5,5,5); }
+				to { transform: rotateX( var(--block-rotation-x) ) rotateY( var(--block-rotation-y) ) translateY( var(--block-position) ); }
+			}
+
+			#cube.reset.side3 { animation: "reset3" 1s ease-in-out 0s 1 normal forwards; }
+			@keyframes reset3 {
+				from { transform: rotateX( 0 ) rotateY( 0 ) translateY( 0 ) scale3d(5,5,5);  }
+				to { transform: rotateX( var(--block-rotation-x) ) rotateY( var(--block-rotation-y) ) translateY( var(--block-position) ); }
+			}
+
+			#cube.reset.side4 { animation: "reset4" 1s ease-in-out 0s 1 normal forwards; }
+			@keyframes reset4 {
+				from { transform: rotateX( 0 ) rotateY( 180deg ) translateY( 0 ) scale3d(5,5,5); }
+				to { transform: rotateX( var(--block-rotation-x) ) rotateY( var(--block-rotation-y) ) translateY( var(--block-position) ); }
+			}
+
+			#cube.reset.side5 { animation: "reset5" 1s ease-in-out 0s 1 normal forwards; }
+			@keyframes reset5 {
+				from { transform: rotateX( -90deg ) rotateY( 0 ) translateY( 0 ) scale3d(10,0.001,10); }
+				to { transform: rotateX( var(--block-rotation-x) ) rotateY( var(--block-rotation-y) ) translateY( var(--block-position) ); }
+			}
+
 
 		</style>
 
@@ -119,46 +189,98 @@
 
 	<body>
 
-		<div class="scene">
-			<div id="cube" class="cube">
-				<div class="face ZP background-1" onclick="activate()" shading="1"></div>
-				<div class="face ZN background-2" onclick="activate()" shading="1"></div>
-				<div class="face XP background-3" onclick="activate()" shading="1"></div>
-				<div class="face XN background-5" onclick="activate()" shading="1"></div>
-				<div class="face YP background-4" onclick="activate()" shading="1"></div>
-				<div class="face YN background-0" onclick="activate()" shading="1"></div>
+		<div id="scene">
+
+			<div id="cube" class="cube reset">
+
+				<div class="face ZP bg1" onclick="side(1)"></div>
+				<div class="face ZN bg2" onclick="side(2)"></div>
+				<div class="face XP bg3" onclick="side(3)"></div>
+				<div class="face XN bg4" onclick="side(4)"></div>
+				<div class="face YP bg5" onclick="side(5)"></div>
+				<div class="face YN bg6"></div>
+
+				<div class="cube shadow">
+
+					<div class="face ZP"></div>
+					<div class="face ZN"></div>
+					<div class="face XP"></div>
+					<div class="face XN"></div>
+					<div class="face YP"></div>
+					<div class="face YN"></div>
+
+				</div>
+
 			</div>
+
 		</div>
 
 	</body>
 
 	<script>
 
-		window.addEventListener('load', function () {
+		let root = document.documentElement;
+		let cube = document.getElementById("cube");
+		let currentClass = "reset";
+		let resetCube = true;
 
-			window.cube = document.getElementById("cube");
-			window.animate = true;
-			window.rot = 1;
-			cube.classList.add("animated");
+		let side = function( number ) {
 
-			let transitionAnimation = function() {
-				if(animate) {
-					rot += 1;
-					cube.style.transform = `rotateX(-25deg) rotateY(${rot}deg)`;
-				}
+			if( resetCube == false ) {
+
+				cube.classList.add( "reset" );
+
+				resetCube = true
+
 			}
 
-			cube.addEventListener('transitionend', transitionAnimation );
+			else {
+
+				cube.classList.replace( currentClass, "side" + number );
+
+				currentClass = "side" + number;
+
+				cube.classList.remove("reset")
+				resetCube = false;
+
+			}
+
+		}
+
+		let distance = 1;
+		window.addEventListener("mousemove", e => {
+
+			let center = [ window.innerWidth / 2, window.innerHeight / 2 ];
+
+			distance = Math.abs( Math.sqrt( Math.pow( e.clientX - center[0], 2 ) + Math.pow( e.clientY - center[1], 2 ) ) ) / 360;
 
 		});
 
-		function activate() {
+		let rotation = 0;
+		let lastTick = performance.now();
+		let AnimationLoop = function( time=0 ) {
 
-			window.animate = false;
-			cube.style.transition = "transform 1.0s linear"
-			cube.style.transform = `rotateX(0deg) rotateY(0deg) scale3D(4,4,4)`;
+			let delta = ( time - lastTick ) / ( 1000 / 60 );
+  			lastTick = time;
+
+			let blockPosition = Math.round( Math.sin( time / 1000 ) * 15 * 100 ) / 100;
+			let shadowAmount = ( 50 - Math.abs( blockPosition + 25 ) ) / 3 + 3;
+
+			rotation += delta / 4;
+			if( distance > 1 ) rotation += 0.5 * 1.5;
+			else if( distance > 0.5 ) rotation += ( distance - 0.5 ) * 1.5;
+			rotation = rotation % 360;
+
+			root.style.setProperty('--block-position', blockPosition + "px");
+			root.style.setProperty('--shadow-level', shadowAmount + "px" );
+			root.style.setProperty('--block-rotation-x', "-25deg");
+			root.style.setProperty('--block-rotation-y', rotation + "deg");
+
+		    requestAnimationFrame( AnimationLoop );
 
 		}
+
+		requestAnimationFrame( AnimationLoop );
 
 	</script>
 

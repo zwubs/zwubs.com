@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+	<head>
+
+		<meta charset="utf-8">
+
+		<title></title>
+
+		<style>
+
+			:root {
+			    --block-scale: 10;
+			}
+
+			body {
+
+				position: absolute;
+
+				margin: 0;
+
+				width: 100%;
+				height: 100%;
+
+				overflow: hidden;
+
+			}
+
+			.scene {
+
+				position: absolute;
+
+				left: 50%;
+				top: 50%;
+
+				transform: translate(-50%,-50%);
+
+				border: 1px black solid;
+
+				perspective: 100vh;
+
+				padding: calc( var( --block-scale ) * 8px );
+				border-radius: 50%;
+
+			}
+
+			.cube {
+
+				width: calc( var(--block-scale) * 16px );
+				height: calc( var(--block-scale) * 16px );
+
+				transform-style: preserve-3d;
+
+				transform: rotateX(-30deg) rotateY(0deg);
+
+				transition: transform 0.025s linear;
+
+			}
+
+			.scene:hover .cube {
+
+				transition: transform 0.1s linear;
+
+			}
+
+			.cube .face {
+
+				position: absolute;
+
+				width: calc( var(--block-scale) * 16px );
+				height: calc( var(--block-scale) * 16px );
+
+				cursor: pointer;
+
+			}
+
+			.cube .face[shading=1] {
+
+				opacity: 0.5;
+
+			}
+
+			.cube .face.ZP { transform: rotateY(90deg) translateZ( calc( var(--block-scale) * 8px ) ); }
+			.cube .face.ZN { transform: rotateY(-90deg) translateZ( calc( var(--block-scale) * 8px ) ); }
+			.cube .face.XP { transform: rotate(0deg) translateZ( calc( var(--block-scale) * 8px ) ); }
+			.cube .face.XN { transform: rotateY(180deg) translateZ( calc( var(--block-scale) * 8px ) ); }
+			.cube .face.YP { transform: rotateX(90deg) translateZ( calc( var(--block-scale) * 8px ) ); }
+			.cube .face.YN { transform: rotateX(-90deg) translateZ( calc( var(--block-scale) * 8px ) ); }
+
+			.background-1 { background-color: #FFC282; }
+			.background-2 { background-color: #E876C2; }
+			.background-3 { background-color: #8F9EFF; }
+			.background-4 { background-color: #76E8B6; }
+			.background-5 { background-color: #FFFF9B; }
+
+			.background-1:active { opacity: 0; }
+
+			.face:after {
+				content:'';
+				position:absolute;
+				left:0; top:0;
+				width:100%; height:100%;
+				display:inline-block;
+				background: radial-gradient( rgba(1,1,1,0), rgba(1,1,1,0.1));
+
+			}
+
+			.face:hover:after {
+
+				background: radial-gradient( rgba(1,1,1,0.1), rgba(1,1,1,0));
+
+			}
+
+			.animated { transform: rotateX(-25deg) rotateY(1deg); }
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<div class="scene">
+			<div id="cube" class="cube">
+				<div class="face ZP background-1" onclick="activate()" shading="1"></div>
+				<div class="face ZN background-2" onclick="activate()" shading="1"></div>
+				<div class="face XP background-3" onclick="activate()" shading="1"></div>
+				<div class="face XN background-5" onclick="activate()" shading="1"></div>
+				<div class="face YP background-4" onclick="activate()" shading="1"></div>
+				<div class="face YN background-0" onclick="activate()" shading="1"></div>
+			</div>
+		</div>
+
+	</body>
+
+	<script>
+
+		window.addEventListener('load', function () {
+
+			window.cube = document.getElementById("cube");
+			window.animate = true;
+			window.rot = 1;
+			cube.classList.add("animated");
+
+			let transitionAnimation = function() {
+				if(animate) {
+					rot += 1;
+					cube.style.transform = `rotateX(-25deg) rotateY(${rot}deg)`;
+				}
+			}
+
+			cube.addEventListener('transitionend', transitionAnimation );
+
+		});
+
+		function activate() {
+
+			window.animate = false;
+			cube.style.transition = "transform 1.0s linear"
+			cube.style.transform = `rotateX(0deg) rotateY(0deg) scale3D(4,4,4)`;
+
+		}
+
+	</script>
+
+</html>

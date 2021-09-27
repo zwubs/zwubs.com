@@ -119,64 +119,64 @@
 			/*
 				Animations
 			*/
-			#cube.side1 { animation: "side1" 1.5s ease-in-out 0s 1 normal forwards; }
+			#cube.side1 { animation: side1 1.5s ease-in-out 0s 1 normal forwards; }
 			@keyframes side1 {
 				25% { transform: rotateX( 0 ) rotateY( 270deg ) translateY( 0 ); }
 				50% { transform: rotateX( 0 ) rotateY( 270deg ) translateY( 0 ); }
 				100% { transform: translateZ(80vh) rotateX(0) rotateZ( 180deg ) rotateY( 270deg ) translateY( 0 ); }
 			}
 
-			#cube.side2 { animation: "side2" 1s ease-in-out 0s 1 normal forwards; }
+			#cube.side2 { animation: side2 1s ease-in-out 0s 1 normal forwards; }
 			@keyframes side2 {
 				50% { transform: rotateX( 0 ) rotateY( 90deg ) translateY( 0 ); }
 				100% { transform: rotateX( 0 ) rotateY( 90deg ) translateY( 0 ) scale3d(5,5,5); }
 			}
 
-			#cube.side3 { animation: "side3" 1.5s ease-in-out 0s 1 normal forwards; }
+			#cube.side3 { animation: side3 1.5s ease-in-out 0s 1 normal forwards; }
 			@keyframes side3 {
 				25% { transform: rotateX( 0 ) rotateY( 0 ) translateY( 0 ); }
 				75% { transform: rotateX( 0 ) rotateY( 360deg ) translateY( 0 ) scale3d(3,3,3);  }
 				100% { transform: rotateX( 0 ) rotateY( 360deg ) translateY( 0 ) scale3d(5,5,5);  }
 			}
 
-			#cube.side4 { animation: "side4" 1.5s ease-in-out 0s 1 normal forwards; }
+			#cube.side4 { animation: side4 1.5s ease-in-out 0s 1 normal forwards; }
 			@keyframes side4 {
 				50% { transform: rotateX( 0 ) rotateY( 180deg ) translateY( 100vh ); }
 				100% { transform: rotateX( 0 ) rotateY( 180deg ) translateY( 0 ) scale3d(5,5,5); }
 			}
 
-			#cube.side5 { animation: "side5" 1s ease-in-out 0s 1 normal forwards; }
+			#cube.side5 { animation: side5 1s ease-in-out 0s 1 normal forwards; }
 			@keyframes side5 {
 				50% { transform: rotateX( -45deg ) rotateY( 0 ) translateY( 0 ) scaleY(0.001); }
 				75% { transform: rotateX( -90deg ) rotateY( 0 ) translateY( 0 ) scaleY(0.001); }
 				100% { transform: rotateX( -90deg ) rotateY( 0 ) translateY( 0 ) scale3d(10,0.001,10); }
 			}
 
-			#cube.reset.side1 { animation: "reset1" 1s ease-in-out 0s 1 normal forwards; }
+			#cube.reset.side1 { animation: reset1 1s ease-in-out 0s 1 normal forwards; }
 			@keyframes reset1 {
 				from { transform: translateZ(80vh) rotateX(0) rotateZ( 180deg ) rotateY( 270deg ) translateY( 0 ); }
 				to { transform: rotateX( var(--block-rotation-x) ) rotateY( var(--block-rotation-y) ) translateY( var(--block-position) ); }
 			}
 
-			#cube.reset.side2 { animation: "reset2" 1s ease-in-out 0s 1 normal forwards; }
+			#cube.reset.side2 { animation: reset2 1s ease-in-out 0s 1 normal forwards; }
 			@keyframes reset2 {
 				from { transform: rotateX( 0 ) rotateY( 90deg ) translateY( 0 ) scale3d(5,5,5); }
 				to { transform: rotateX( var(--block-rotation-x) ) rotateY( var(--block-rotation-y) ) translateY( var(--block-position) ); }
 			}
 
-			#cube.reset.side3 { animation: "reset3" 1s ease-in-out 0s 1 normal forwards; }
+			#cube.reset.side3 { animation: reset3 1s ease-in-out 0s 1 normal forwards; }
 			@keyframes reset3 {
 				from { transform: rotateX( 0 ) rotateY( 0 ) translateY( 0 ) scale3d(5,5,5);  }
 				to { transform: rotateX( var(--block-rotation-x) ) rotateY( var(--block-rotation-y) ) translateY( var(--block-position) ); }
 			}
 
-			#cube.reset.side4 { animation: "reset4" 1s ease-in-out 0s 1 normal forwards; }
+			#cube.reset.side4 { animation: reset4 1s ease-in-out 0s 1 normal forwards; }
 			@keyframes reset4 {
 				from { transform: rotateX( 0 ) rotateY( 180deg ) translateY( 0 ) scale3d(5,5,5); }
 				to { transform: rotateX( var(--block-rotation-x) ) rotateY( var(--block-rotation-y) ) translateY( var(--block-position) ); }
 			}
 
-			#cube.reset.side5 { animation: "reset5" 1s ease-in-out 0s 1 normal forwards; }
+			#cube.reset.side5 { animation: reset5 1s ease-in-out 0s 1 normal forwards; }
 			@keyframes reset5 {
 				from { transform: rotateX( -90deg ) rotateY( 0 ) translateY( 0 ) scale3d(10,0.001,10); }
 				to { transform: rotateX( var(--block-rotation-x) ) rotateY( var(--block-rotation-y) ) translateY( var(--block-position) ); }
@@ -223,6 +223,15 @@
 		let cube = document.getElementById("cube");
 		let currentClass = "reset";
 		let resetCube = true;
+		let animationState = 0;
+		let rotateCube = true;
+		cube.onanimationend = () => {
+			if( animationState == 1 ) rotateCube = true;
+			animationState = ( animationState + 1 ) % 2;
+		};
+		cube.onanimationstart = () => {
+			if( animationState == 0 ) rotateCube = false;
+		};
 
 		let side = function( number ) {
 
@@ -257,24 +266,30 @@
 		});
 
 		let rotation = 0;
+		let hover = 0;
 		let lastTick = performance.now();
 		let AnimationLoop = function( time=0 ) {
 
 			let delta = ( time - lastTick ) / ( 1000 / 60 );
-  			lastTick = time;
+			lastTick = time;
 
-			let blockPosition = Math.round( Math.sin( time / 1000 ) * 15 * 100 ) / 100;
-			let shadowAmount = ( 50 - Math.abs( blockPosition + 25 ) ) / 3 + 3;
+			if( rotateCube == true ) {
 
-			rotation += delta / 4;
-			if( distance > 1 ) rotation += 0.5 * 1.5;
-			else if( distance > 0.5 ) rotation += ( distance - 0.5 ) * 1.5;
-			rotation = rotation % 360;
+				hover += delta;
+				let blockPosition = Math.round( Math.sin( hover / 1000 ) * 15 * 100 ) / 100;
+				let shadowAmount = ( 50 - Math.abs( blockPosition + 25 ) ) / 3 + 3;
 
-			root.style.setProperty('--block-position', blockPosition + "px");
-			root.style.setProperty('--shadow-level', shadowAmount + "px" );
-			root.style.setProperty('--block-rotation-x', "-25deg");
-			root.style.setProperty('--block-rotation-y', rotation + "deg");
+				rotation += delta / 4;
+				if( distance > 1 ) rotation += 0.5 * 1.5;
+				else if( distance > 0.5 ) rotation += ( distance - 0.5 ) * 1.5;
+				rotation = rotation % 360;
+
+				root.style.setProperty('--block-position', blockPosition + "px");
+				root.style.setProperty('--shadow-level', shadowAmount + "px" );
+				root.style.setProperty('--block-rotation-x', "-25deg");
+				root.style.setProperty('--block-rotation-y', rotation + "deg");
+
+			}
 
 		    requestAnimationFrame( AnimationLoop );
 

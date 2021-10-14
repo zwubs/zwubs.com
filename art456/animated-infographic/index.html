@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+	<head>
+
+		<meta charset="utf-8">
+
+		<title>Wood Texture Bump Map</title>
+
+		<style>
+
+			html, body {
+
+				width: 100%;
+				height: 100%;
+
+				margin: 0;
+
+				overflow: hidden;
+
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<svg width="100%" height="100%">
+
+			<defs>
+
+				<pattern id="wood-img" width="1024" height="1024" patternUnits="userSpaceOnUse">
+
+					<image xlink:href="./textures/wood-light.png" x="0" y="0" width="1024" height="1024"/>
+
+				</pattern>
+
+				<filter id="wood-bump">
+
+					<feDiffuseLighting surfaceScale="4.5" diffuseConstant="1" result="light">
+						<fePointLight x="100" y="100" z="5000">
+						</fePointLight>
+					</feDiffuseLighting>
+
+					<feComposite in="light" in2="SourceGraphic" operator="arithmetic" k1="1" k2="0" k3="0" k4="0">
+					</feComposite>
+
+				</filter>
+
+			</defs>
+
+			<rect fill="url(#wood-img)" filter="url(#wood-bump)" x="0" y="0" width="100%" height="100%"/>
+
+		</svg>
+
+	</body>
+
+</html>

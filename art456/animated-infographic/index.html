@@ -11,6 +11,8 @@
 
             @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
+            ::-webkit-scrollbar { display: none; }
+
             html, body {
 
                 width: 100%;
@@ -18,7 +20,9 @@
 
                 margin: 0;
 
-                overflow: hidden;
+                overflow: scroll;
+
+                scrollbar-width: none;
 
             }
 
@@ -30,6 +34,8 @@
                 height: 100%;
 
                 right: 0;
+
+                transform-origin: top left;
 
             }
 
@@ -67,7 +73,7 @@
             */
             #overlay {
 
-                position: absolute;
+                position: fixed;
 
                 width: 100%;
                 height: 100%;
@@ -84,6 +90,7 @@
                 left: 100%;
                 top: 50%;
 
+                width: 5vw;
                 height: 50vh;
 
                 transform: translate( 0%, -50% );
@@ -508,6 +515,16 @@
             </div>
 
         </div>
+
+        <script>
+
+            window.addEventListener('resize', function() {
+
+                scene.style.transform = `scale(${ window.innerWidth / 1536 })`
+
+            });
+
+        </script>
 
         <script>
 

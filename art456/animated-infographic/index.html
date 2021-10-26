@@ -518,16 +518,6 @@
 
         <script>
 
-            window.addEventListener('resize', function() {
-
-                scene.style.transform = `scale(${ window.innerWidth / 1536 })`
-
-            });
-
-        </script>
-
-        <script>
-
             let depthMap = document.getElementById("depth-map");
             let activeDepth = 0;
 
@@ -551,6 +541,14 @@
                 document.querySelector(`#info-depth-${ activeDepth }`).classList.toggle("visible");
 
             });
+
+            window.addEventListener('resize', function() {
+
+                scene.style.transform = `scale(${ window.innerWidth / 1536 })`;
+
+            });
+
+            scene.style.transform = `scale(${ window.innerWidth / 1536 })`;
 
         </script>
 

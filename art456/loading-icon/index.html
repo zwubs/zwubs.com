@@ -5,7 +5,11 @@
 
         <meta charset="utf-8">
 
-        <title></title>
+        <title>The Dude!</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Georama:wght@900&display=swap" rel="stylesheet">
 
         <style>
 
@@ -13,9 +17,11 @@
 
                 background-color: #272727;
 
+                font-family: "Georama"
+
             }
 
-            #man {
+            h1 {
 
                 position: absolute;
 
@@ -24,22 +30,262 @@
 
                 transform: translate( -50%, -50% );
 
-                height: 50vh;
+                font-size: 15vw;
+                color: rgba( 255, 255, 255, 0.75 );
+                margin: 0;
+                opacity: 0;
 
             }
+
+            h1.show { opacity: 1; }
+
+            #man {
+
+                position: absolute;
+
+                left: 50%;
+                top: 50%;
+
+                transform: translate( -50%, -50% ) scale(7.0);
+
+            }
+
+            #progress {
+
+                position: absolute;
+
+                left: 50%; top: 75%;
+
+                transform: translate( -50%, -50% ) scale(7.0);
+
+            }
+
+        </style>
+
+        <!-- Animations -->
+        <style>
+
+            /* Load Fade Animation */
+            #man { opacity: 1.0; animation: fadein 1s linear 0.0s; }
+            @keyframes fadein {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+
+            #man.blink #eyes-blink {
+                animation: eyes-blink 3s linear 0s infinite;
+            }
+            #man.squint #eyes-blink {
+
+                transform: scaleY( 0.25 );
+            }
+
+            #man.eyes-right #eyes-position {
+                transform: translate( 2px, 0px );
+            }
+
+            @keyframes eyes-blink {
+                0%   { transform: scaleY( 1.0 ); }
+                90%   { transform: scaleY( 1.0 ); }
+                94%   { transform: scaleY( 0.0 ); }
+                98% { transform: scaleY( 1.0 ); }
+            }
+
+            #man.bob #head-bob {
+
+                transform-origin: 4px 3px;
+                animation: head-bob 0.5s linear 0s infinite;
+
+            }
+
+            @keyframes head-bob {
+                0% { transform: rotate(5deg); }
+                25% { transform: rotate(-10deg); }
+                50% { transform: rotate(5deg); }
+                100% { transform: rotate(5deg); }
+            }
+
+            #man.sway #arm-right { animation: sway 1s ease-in-out 0s infinite; }
+            #man.sway #arm-left { animation: sway 1s ease-in-out 0.5s infinite; }
+
+            @keyframes sway {
+                0% { transform: rotate( 15deg ); }
+                50% { transform: rotate( -15deg ); }
+                100% { transform: rotate( 15deg ); }
+            }
+
+            #man.handless #arm-right, #man.handless #arm-left { opacity: 0.0; }
+
+            #arm-left, #arm-right { transition: opacity 0.5s linear 0.5s; }
+
+            #man.step #leg-right-flip {
+
+                transform: scaleX( -1.0 );
+                transform-origin: 3px 0px;
+                transition: transform 0.5s linear;
+
+            }
+
+            #man.step #leg-left-step-animation {
+
+                animation: leg-step 0.5s linear 0s infinite;
+
+            }
+            #man.step #leg-right-step-animation {
+
+                animation: leg-step 0.5s linear 0.25s infinite;
+
+            }
+
+            #man.step svg { animation: body-step 5s linear infinite; }
+
+            @keyframes body-step {
+                0%   { transform: translate( 0px, 0px ); }
+                25%  { transform: translate( -10px, 0px ) scaleX(1); }
+                26%  { transform: translate( -10px, 0px ) scaleX(-1); }
+                75%  { transform: translate( 10px, 0px ) scaleX(-1); }
+                76%  { transform: translate( 10px, 0px ) scaleX(1); }
+                100% { transform: translate( 0px, 0px ); }
+            }
+
+            @keyframes leg-step {
+                0%   { transform: translate( 0px, 0px ); }
+                25%  { transform: translate( -1px, -1px ); }
+                50%  { transform: translate( -0.5px, 0px ); }
+                75%  { transform: translate( 0.5px, 0px ); }
+                100%  { transform: translate( 0px, 0px ); }
+            }
+
+            #man.center #head-bob { transform: translate( 1px, 1px ); }
+            #man.center #eyes-position { transform: translate( 1px, 0px ); }
+
+            #man.awake #head-bob { transform: translate( 1px, 0px ); }
+            #man.awake #eyes-position { transform: translate( 1px, 0px ); }
+
+            #head-bob { transition: transform 0.75s linear; }
+            #eyes-position { transition: transform 0.75s linear; }
+            #eyes-blink { transition: transform 0.75s linear; }
+
+            #man.party #arm-right { animation: spin 1s linear 0s infinite; transform-origin: 14px 14px; }
+            #man.party #arm-left { animation: spin 1s linear 0s infinite; transform-origin: 4px 14px;transform: scaleX(-1); }
+
+            @keyframes spin {
+                from { transform: rotate( 0deg ); }
+                to { transform: rotate( 360deg ); }
+            }
+
+            #man.party svg { animation: gyrate 0.25s linear 0s infinite; }
+
+            @keyframes gyrate {
+                0% { transform: translate( 0px, 0px ); }
+                25% { transform: translate( 1px, 0px ); }
+                50% { transform: translate( 1px, 1px ); }
+                75% { transform: translate( 0px, 1px ); }
+                100% { transform: translate( 0px, 0px ); }
+            }
+
 
         </style>
 
     </head>
 
     <body>
+        <!-- handless center squint -->
+        <!-- handless awake -->
+        <!-- handless bob -->
+        <!-- handless bob squint -->
+        <!-- sway bob squint -->
+        <!-- sway bob squint step -->
+        <!-- step party -->
 
-        <object id="man" type="image/svg+xml" data="man.svg">
+        <div id="man" class="handless center squint"></div>
 
-            Wobbly Man
+        <svg id="progress" height="4" width="40">
 
-        </object>
+            <rect rx="1px" ry="1px" fill="rgba(255,255,255,0.05)" width="100%" height="100%"></rect>
+
+            <rect rx="1px" ry="1px" fill="rgba(255,255,255,1.0)" width="100%" height="100%">
+
+                <animate attributeName="width" calcMode="spline" values="0%;100%" keySplines="0.25 0 0.25 1" dur="30s" />
+
+            </rect>
+
+        </svg>
+
+        <h1 id="done">DONE!</h1>
 
     </body>
+
+    <!-- SVG Loader -->
+    <script>
+
+        let scene = document.getElementById("man");
+
+        let loadSVG = function( url, resolve ) {
+
+            let svgRequest = new XMLHttpRequest();
+
+            svgRequest.open( 'get', url, true );
+
+            svgRequest.addEventListener("load", function() {
+
+                let svg = svgRequest.responseXML.documentElement;
+
+                svg = document.importNode( svg, true );
+
+                resolve( svg )
+
+            });
+
+            svgRequest.send();
+
+        }
+
+        let run = async function() {
+
+            let manSVG = await new Promise( resolve => { loadSVG( "./man.svg", resolve ); } );
+
+            scene.appendChild( manSVG );
+        }
+
+        run();
+
+
+    </script>
+
+    <script>
+
+        let man = document.getElementById("man")
+        let done = document.getElementById("done")
+
+
+        setTimeout(function() {
+            man.classList.toggle("center");
+            man.classList.toggle("squint");
+            man.classList.toggle("awake");
+        }, 2000);
+        setTimeout(function() {
+            man.classList.toggle("awake");
+            man.classList.toggle("bob");
+        }, 4000);
+        setTimeout(function() {
+            man.classList.toggle("squint");
+        }, 7000);
+        setTimeout(function() {
+            man.classList.toggle("handless");
+            man.classList.toggle("sway");
+        }, 12000);
+        setTimeout(function() {
+            man.classList.toggle("step");
+        }, 20000);
+        setTimeout(function() {
+            man.classList.toggle("party");
+            man.classList.toggle("bob");
+            man.classList.toggle("sway");
+            man.classList.toggle("squint");
+            done.classList.toggle("show");
+        }, 30000);
+
+    </script>
 
 </html>

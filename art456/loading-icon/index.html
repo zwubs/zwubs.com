@@ -5,7 +5,7 @@
 
         <meta charset="utf-8">
 
-        <title>The Dude!</title>
+        <title>HDBG - He Do Be Gyrating</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
 
                 background-color: #272727;
 
-                font-family: "Georama"
+                font-family: Georama;
 
             }
 
@@ -31,7 +31,7 @@
                 transform: translate( -50%, -50% );
 
                 font-size: 15vw;
-                color: rgba( 255, 255, 255, 0.75 );
+                color: #FFF;
                 margin: 0;
                 opacity: 0;
 
@@ -46,7 +46,7 @@
                 left: 50%;
                 top: 50%;
 
-                transform: translate( -50%, -50% ) scale(7.0);
+                transform: translate( -50%, -50% ) scaleX(-1);
 
             }
 
@@ -141,10 +141,10 @@
 
             @keyframes body-step {
                 0%   { transform: translate( 0px, 0px ); }
-                25%  { transform: translate( -10px, 0px ) scaleX(1); }
-                26%  { transform: translate( -10px, 0px ) scaleX(-1); }
-                75%  { transform: translate( 10px, 0px ) scaleX(-1); }
-                76%  { transform: translate( 10px, 0px ) scaleX(1); }
+                25%  { transform: translate( -60px, 0px ) scaleX(1); }
+                26%  { transform: translate( -60px, 0px ) scaleX(-1); }
+                75%  { transform: translate( 60px, 0px ) scaleX(-1); }
+                76%  { transform: translate( 60px, 0px ) scaleX(1); }
                 100% { transform: translate( 0px, 0px ); }
             }
 
@@ -178,9 +178,9 @@
 
             @keyframes gyrate {
                 0% { transform: translate( 0px, 0px ); }
-                25% { transform: translate( 1px, 0px ); }
-                50% { transform: translate( 1px, 1px ); }
-                75% { transform: translate( 0px, 1px ); }
+                25% { transform: translate( 5px, 0px ); }
+                50% { transform: translate( 5px, 5px ); }
+                75% { transform: translate( 0px, 5px ); }
                 100% { transform: translate( 0px, 0px ); }
             }
 
@@ -198,6 +198,8 @@
         <!-- sway bob squint step -->
         <!-- step party -->
 
+        <h1 id="done">DONE!</h1>
+
         <div id="man" class="handless center squint"></div>
 
         <svg id="progress" height="4" width="40">
@@ -211,8 +213,6 @@
             </rect>
 
         </svg>
-
-        <h1 id="done">DONE!</h1>
 
     </body>
 

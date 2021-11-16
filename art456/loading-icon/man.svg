@@ -2,7 +2,7 @@
     Author: Zachary Winters (@ZWubs)
     Handwritten
 -->
-<svg width="64" height="42" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<svg width="480" height="480" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg">
 
     <!-- Basic CSS -->
     <style>
@@ -12,7 +12,7 @@
             --outline-color: #272727;
         }
 
-        #figure { transform: translate( 22px, 1px ); fill: var(--fill-color); }
+        #figure { transform: translate( 22px, 12px ); fill: var(--fill-color); }
 
         *[name="outline"] { fill: var(--outline-color); }
         rect { rx: 0.4px; ry: 0.4px; }
@@ -128,8 +128,6 @@
 
         </g>
 
-        <g id="arm-right"> <use href="#arm-template" class="template"/> </g>
-
         <g id="head">
 
             <g type="animation" id="head-bob">
@@ -157,6 +155,8 @@
             </g>
 
         </g>
+
+        <g id="arm-right"> <use href="#arm-template" class="template"/> </g>
 
     </g>
 

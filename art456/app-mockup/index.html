@@ -9,9 +9,19 @@
 
         <style media="screen">
 
+            body {
+
+                margin: 0;
+
+                overflow: hidden;
+
+                background-color: #d5d5d5;
+
+            }
+
             video {
 
-                height: 90vh;
+                height: 60vh;
 
                 position: absolute;
 
@@ -24,19 +34,36 @@
 
             }
 
+            img {
+
+                height: 100vh;
+
+                position: absolute;
+
+                left: 50%;
+                top: 50%;
+
+                transform: translate( -50%, -50% );
+
+                pointer-events: none;
+
+            }
+
         </style>
 
     </head>
 
-    <body>
+    <body onclick="document.getElementById('video').play()">
 
-        <video height="512px" loop onclick="this.play()">
+        <video id="video" height="512px" loop >
 
             <source src="./render.mp4" type="video/mp4">
 
             HTML5 Video Unavailable
 
         </video>
+
+        <img src="phone.png"/>
 
     </body>
 

@@ -35,8 +35,8 @@
 		"ROTATE_LEFT": "./scripts/rotate-left.js",
 		"ROTATE_RIGHT": "./scripts/rotate-right.js",
 
-		"JUMP": "./scripts/jump.js",
-		"COLLIDE": "./scripts/collide.js"
+		"COLLIDE": "./scripts/collide.js",
+		"JUMP": "./scripts/jump.js"
 
 	},
 

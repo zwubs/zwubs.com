@@ -4,7 +4,7 @@
 	"name": "Player2",
 	"version": "1.0.1",
 
-	"texture": "player.png",
+	"texture": "player2.png",
 
 	"tileset": {
 		"main": {

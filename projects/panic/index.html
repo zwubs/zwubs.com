@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+
+		<title>PANIC Engine</title>
+
+		<meta charset="UTF-8">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="icon" type="image/png" href="../logo.png"/>
+
+		<style>
+
+			body {
+
+				width: 100vw;
+				height: 100vh;
+
+				margin: 0;
+
+				overflow: hidden;
+
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<script src="./panic-engine/lib/three.js"></script>
+
+		<script src="./panic-engine/build/panic.min.js"></script>
+
+		<script>
+
+			PANIC.Debug.enable();
+
+			PANIC.Debug.Access.enable();
+
+			let Player1 = null;
+			let Player2 = null;
+
+			try {
+
+				PANIC.Loaders.Entity.load( "./entities/player1.json" ).then( ( template ) => {
+
+					Player1 = PANIC.EntityRegistry.spawnEntity( template.id );
+					Player1.position.set( 0.5, 0, 0 );
+
+					// PANIC.Debug.Entity( Player1 ).collision = true;
+
+				});
+
+				PANIC.Loaders.Entity.load( "./entities/player2.json" ).then( ( template ) => {
+
+					Player2 = PANIC.EntityRegistry.spawnEntity( template.id );
+					Player2.position.set( -0.5, 0, 0 );
+
+					// PANIC.Debug.Entity( Player2 ).collision = true;
+
+				});
+
+				PANIC.Debug.Grid.toggle();
+				PANIC.Debug.Grid.scale = 16;
+				PANIC.Debug.Grid.subdivisions = 16;
+				PANIC.Debug.Grid.color = 0x888888;
+
+				PANIC.Debug.Axes.toggle();
+
+				PANIC.Debug.Compass.toggle();
+
+				PANIC.Debug.Text.toggle();
+
+				let Loop = function( time=0 ) {
+
+					PANIC.Renderer.render( PANIC.Scene, PANIC.Camera );
+
+					PANIC.Updater.update();
+
+					if( Player1 ) Player1.checkCollision();
+					if( Player2 ) Player2.checkCollision();
+
+					requestAnimationFrame( Loop );
+
+				}
+
+				requestAnimationFrame( Loop );
+
+			}
+
+			catch( error ) {
+
+				PANIC.Debug.error( error );
+
+			}
+
+		</script>
+
+	</body>
+
+</html>

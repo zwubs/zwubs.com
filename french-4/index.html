@@ -61,11 +61,11 @@
             #hero > .content .subtitle { font-size: 1.25em; color: #c6c5c1; font-weight: 400; }
 
             #content { position: relative; }
-            #content .row { height: 75vh; }
+            #content .row { display: flex; height: 75vh; }
             #content .row:nth-child(odd) { background-color: #171614; color: #c6c5c1; }
             #content .row:nth-child(even) { background-color: #c6c5c1; color: #171614; }
 
-            #content .row .col { position: relative; width: 50vw; height: 100%; float: left; }
+            #content .row .col { position: relative; width: 50vw; height: 100%; flex: 1; }
 
             #content .row .col .image {
 

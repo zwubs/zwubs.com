@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+
+        <meta charset="utf-8">
+
+        <title>Le Portable Clair</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
+
+        <style>
+
+            html, body {
+
+                margin: 0;
+
+                background-color: #111;
+
+                font-family: "Ubuntu";
+
+            }
+
+            #hero {
+
+                width: 100vw;
+                height: 100vh;
+
+            }
+
+            #hero > .image {
+
+                width: 100%;
+                height: 100%;
+
+                background-image: url('./img/texting.webp');
+                background-size: cover;
+                background-position: center center;
+
+                opacity: 0.5;
+
+            }
+
+            #hero > .content {
+
+                position: absolute;
+
+                top: 50%;
+                left: 50%;
+
+                transform: translate( -50%, -50% );
+
+                color: #FFF;
+                text-align: center;
+
+            }
+
+            #hero > .content .title { font-size: 5em; font-weight: 500; }
+            #hero > .content .subtitle { font-size: 1.25em; color: #c6c5c1; font-weight: 400; }
+
+            #content { position: relative; }
+            #content .row { height: 75vh; }
+            #content .row:nth-child(odd) { background-color: #171614; color: #c6c5c1; }
+            #content .row:nth-child(even) { background-color: #c6c5c1; color: #171614; }
+
+            #content .row .col { position: relative; width: 50vw; height: 100%; float: left; }
+
+            #content .row .col .image {
+
+                position: absolute;
+                left: 50%;
+                top: 50%;
+
+                transform: translate( -50%, -50% );
+
+
+            }
+
+            #content .row:nth-child(odd) .image { height: 75%; }
+            #content .row:nth-child(even) .image { height: 100%; }
+
+            #content .row.last .image {
+
+                width: 100%;
+                height: 100%;
+
+                background-image: url("img/background.webp");
+                background-size: cover;
+                background-position: center center;
+
+                opacity: 0.25;
+
+            }
+
+            .col .content {
+
+                position: absolute;
+
+                left: 50%;
+                top: 50%;
+
+                transform: translate( -50%, -50% );
+
+            }
+
+            .col .content .header { font-size: 2em; margin-bottom: 25px; font-weight: 400; }
+            .col .content .body { font-size: 1em; font-weight: 300; margin-bottom: 10px; }
+
+            .link {
+
+                position: absolute;
+
+                bottom: 0;
+                left: 50%;
+                transform: translate( -50%, -50% );
+
+                text-decoration: none;
+                color: #c6c5c1;
+                font-weight: 300;
+
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <div id="hero">
+
+            <div class="image"></div>
+
+            <div class="content">
+
+                <div class="title">le portable clair</div>
+
+                <div class="subtitle">concevoir d'être empolie aussi petit que possible</div>
+
+            </div>
+
+        </div>
+
+        <div id="content">
+
+            <div class="row">
+
+                <div class="col">
+
+                    <img class="image" src="./img/light-phone.png" />
+
+                </div>
+
+                <div class="col">
+
+                    <div class="content">
+
+                        <div class="header">le raison</div>
+
+                        <div class="body">
+                            En France, beaucoup de gens ont utilisé les médias sociaux après la pandémie.
+                            De plus, les fake news posent problème, plus de titres de l'actualité exagèrent la vérité.
+                            Le portable clair rend un endroit où vous pouvez avoir un esprit clair et propre.
+                            De plus, la française attache une grande valeur d'un design simple et chic.
+                            Le portable clair est élégant et sophistiqué, il réfléchit beaucoup de valeurs de mode de France, aussi.
+                            C'est petit et il coûte seulement $299, un grand prix pour un portable.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col">
+
+                    <div class="content">
+
+
+                        <div class="header">la conception</div>
+
+                        <div class="body">
+                            Le portable clair a été dessiné d'aider les gens qui s'épanouissent et attache une grande valeur à leur temps.
+                            Cette portable n'a jamais les médias sociaux, les articles qui sont piège à clics et avoir accès au Internet.
+                            C'est un portable qui achète une grande valeur à leur autonomie et qui évite de menacer ta santé mentale.
+                            C'est une expérience que nous appelons « allez clair ».
+                            Le portable clair est capable d'envoyer des textos et appeler.
+                            Il a beaucoup de simples outils que vous pouvez utiliser.
+                            De plus, l'écran semblable à du papier aide vos yeux et il est très économe en énergie.
+                            L'écran n'émiette pas la lumière bleue il n'a pas une lumière de derrière.
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col">
+
+                    <img class="image" src="./img/animation.gif" />
+
+                </div>
+
+            </div>
+
+            <div class="row last">
+
+                <div class="col" style="width: 100vw">
+
+                    <div class="image"></div>
+
+                    <div class="content">
+
+                        <div class="header" style="text-align: center">le but</div>
+
+                        <div class="body">
+                            Le portable clair n'est pas pour tout le monde, mais pour les gens qui aiment la simplicité.
+                            Nous voulons aider les gens à trouver le portable pour eux.
+                            Nous fondons le portable clair en 2015 dans KickStarter, un remplaçant pour un smartphone.
+                            Nous avons un rêve, nous voudrons montrer l'idée de simplicité normale.
+                            Le lien entre les gens et technologie est importante, les technologies que vous utilisez nous former.
+                            Les technologies ne partent pas bientôt, nous devons avoir les technologies qui nous aident.
+                            De plus, nous voulons dessiner un portable durable, nous avons un programme de compenser carbone.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <a class="link" href="https://www.thelightphone.com">
+                <div>
+                    www.thelightphone.com
+                </div>
+            </a>
+
+        </div>
+
+    </body>
+
+</html>

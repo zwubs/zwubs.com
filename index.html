@@ -218,7 +218,7 @@
 
 			.project .content .buttons .button {
 
-				width: 15vh;
+				width: 20vh;
 				height: 5vh;
 
 				margin-right: 1vw;
@@ -269,13 +269,17 @@
 			.project .content .identifiers [data-reference="css"]:hover { color: #039BE5; border-color: #039BE5; }
 			.project .content .identifiers [data-reference="js"]:hover { color: var(--js-color); background: var(--js-background); }
 			.project .content .identifiers [data-reference="webgl"]:hover { color: #961A1F; border-color: #961A1F; }
+			.project .content .identifiers [data-reference="gleam"]:hover { color: #ffaff3; border-color: #ffaff3; }
+			.project .content .identifiers [data-reference="otp"]:hover { color: #671a1d; border-color: #671a1d; }
 			.project .content .identifiers [data-reference="threejs"]:hover { color: #FD5151; border-color: #FD5151; }
 
 			[data-reference] { color: #FFF; }
 			[data-reference="html"]::before { content:"HTML"; }
 			[data-reference="css"]::before { content:"CSS"; }
-			[data-reference="js"]::before { content:"Javscript"; }
+			[data-reference="js"]::before { content:"JavaScript"; }
 			[data-reference="webgl"]::before { content:"WebGL"; }
+			[data-reference="gleam"]::before { content:"Gleam"; }
+			[data-reference="otp"]::before { content:"OTP"; }
 			[data-reference="threejs"]::before { content:"ThreeJS"; }
 
 			.renders {
@@ -551,7 +555,7 @@
 					</div>
 					<div class="buttons">
 						<a style="--color: #FD5151;" href="./projects/panic/" class="button">DEMO</a>
-						<a style="--color: #45CEED;" href="https://glitch.com/edit/#!/zwubs-3d" class="button">BLOG</a>
+						<a style="--color: #45CEED;" href="https://glitch.com/edit/#!/zwubs-3d" class="button">BETA</a>
 					</div>
 					<div class="identifiers">
 						<span data-reference="js"></span>
@@ -579,19 +583,18 @@
 
 				<div class="content">
 
-					<div class="title">RAYTRACER</div>
+					<div class="title">BETAMINE</div>
 					<div class="description">
-						Throughout my college experience I've become increasingly interested in raytracing.
-						A goal in my life is to create a game based fully around raytracing using WebGL, and as I continue to learn I hope to achieve that.
-						Raytracing has a lot of capabilities, espeically on the graphical end of things.
-						With a little work hopeful you'll see a new raytracer game from me soon!
+						Betamine is a Minecraft server implementation written from scratch in the Gleam programming language.
+						It integrates directly with Minecrafts networking protocol while also maintaining its state.
+						This is accomplished utilizing Gleam ability to compile to Erlang and takes advantage or Erlang's concurrency model (OTP) to handle multiple user sessions and boost performance. 
 					</div>
 					<div class="buttons">
-						<a style="--color: #FD5151;" href="https://www.youtube.com/watch?v=_dK_5aS_b3c" class="button">WATCH</a>
+						<a style="--color: #383838;" href="https://github.com/zwubs/betamine" class="button">GITHUB</a>
 					</div>
 					<div class="identifiers">
-						<span data-reference="js"></span>
-						<span data-reference="webgl"></span>
+						<span data-reference="gleam"></span>
+						<span data-reference="otp"></span>
 					</div>
 
 				</div>
@@ -600,10 +603,7 @@
 
 					<div class="parallax">
 
-						<img class="layer layer-1" style="left:5%;top:0%" data-parallax="0.025" src="./renders/raytracing/ball1.png" />
-						<img class="layer layer-2" style="left:5%;top:0%" data-parallax="0.05" src="./renders/raytracing/monkey.png" />
-						<img class="layer layer-3" style="left:5%;top:0%" data-parallax="0.1" src="./renders/raytracing/ball2.png" />
-						<img class="layer layer-4" style="left:5%;top:0%" data-parallax="-0.025" src="./renders/raytracing/background.png" />
+						<img class="layer layer-1" style="left:5%;top:0%" data-parallax="0.025" src="./renders/betamine/logo.png" />
 
 					</div>
 
